@@ -38,7 +38,7 @@ public class game extends JFrame implements MouseListener{
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     addMouseListener(this);
     setBackground(Color.LIGHT_GRAY);
-    //ReadGraph();
+    ReadGraph();
     getNodes();
     paintGame();
     
@@ -224,9 +224,6 @@ public void ReadGraph(){
 
 			        String record = new String();
 					
-					//! THe first few lines of the file are allowed to be comments, staring with a // symbol.
-					//! These comments are only allowed at the top of the file.
-					
 					//! -----------------------------------------
 			        while ((record = br.readLine()) != null)
 						{
@@ -247,12 +244,10 @@ public void ReadGraph(){
 					if( record.startsWith("EDGES = ") )
 						{
 						m = Integer.parseInt( record.substring(8) );					
-						System.out.println(COMMENT + " Expected number of edges = "+m);
 						}
 												
 					for( int d=0; d<m; d++)
 						{
-						System.out.println(COMMENT + " Reading edge "+(d+1));
 						record = br.readLine();
 						String data[] = record.split(" ");
 						if( data.length != 2 )
